@@ -85,24 +85,9 @@
       <operator activated="true" class="store" compatibility="9.2.001" expanded="true" height="68" name="Store (2)" width="90" x="715" y="34">
         <parameter key="repository_entry" value="../data/tempe"/>
       </operator>
-      <operator activated="true" class="concurrency:parallel_random_forest" compatibility="9.2.001" expanded="true" height="103" name="Random Forest" width="90" x="849" y="34">
-        <parameter key="number_of_trees" value="100"/>
-        <parameter key="criterion" value="least_square"/>
-        <parameter key="maximal_depth" value="10"/>
-        <parameter key="apply_pruning" value="false"/>
-        <parameter key="confidence" value="0.1"/>
-        <parameter key="apply_prepruning" value="false"/>
-        <parameter key="minimal_gain" value="0.01"/>
-        <parameter key="minimal_leaf_size" value="2"/>
-        <parameter key="minimal_size_for_split" value="4"/>
-        <parameter key="number_of_prepruning_alternatives" value="3"/>
-        <parameter key="random_splits" value="false"/>
-        <parameter key="guess_subset_ratio" value="true"/>
-        <parameter key="subset_ratio" value="0.2"/>
-        <parameter key="voting_strategy" value="confidence vote"/>
-        <parameter key="use_local_random_seed" value="false"/>
-        <parameter key="local_random_seed" value="1992"/>
-        <parameter key="enable_parallel_execution" value="true"/>
+      <operator activated="true" class="vector_linear_regression" compatibility="9.2.001" expanded="true" height="82" name="Vector Linear Regression" width="90" x="849" y="34">
+        <parameter key="use_bias" value="true"/>
+        <parameter key="ridge" value="1.0E-8"/>
       </operator>
       <operator activated="true" class="store" compatibility="9.2.001" expanded="true" height="68" name="Store" width="90" x="983" y="34">
         <parameter key="repository_entry" value="../data/train2"/>
@@ -112,8 +97,8 @@
       <connect from_op="Nominal to Numerical (2)" from_port="example set output" to_op="Nominal to Numerical" to_port="example set input"/>
       <connect from_op="Nominal to Numerical" from_port="example set output" to_op="Nominal to Numerical (3)" to_port="example set input"/>
       <connect from_op="Nominal to Numerical (3)" from_port="example set output" to_op="Store (2)" to_port="input"/>
-      <connect from_op="Store (2)" from_port="through" to_op="Random Forest" to_port="training set"/>
-      <connect from_op="Random Forest" from_port="model" to_op="Store" to_port="input"/>
+      <connect from_op="Store (2)" from_port="through" to_op="Vector Linear Regression" to_port="training set"/>
+      <connect from_op="Vector Linear Regression" from_port="model" to_op="Store" to_port="input"/>
       <connect from_op="Store" from_port="through" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
