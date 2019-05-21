@@ -36,10 +36,7 @@
         <parameter key="unexpected_value_handling" value="all 0 and warning"/>
         <parameter key="use_underscore_in_name" value="false"/>
       </operator>
-      <operator activated="true" class="store" compatibility="9.2.001" expanded="true" height="68" name="Store (2)" width="90" x="313" y="85">
-        <parameter key="repository_entry" value="../data/temp"/>
-      </operator>
-      <operator activated="true" class="linear_regression" compatibility="9.2.001" expanded="true" height="103" name="Linear Regression" width="90" x="447" y="34">
+      <operator activated="true" class="linear_regression" compatibility="9.2.001" expanded="true" height="103" name="Linear Regression" width="90" x="380" y="34">
         <parameter key="feature_selection" value="M5 prime"/>
         <parameter key="alpha" value="0.05"/>
         <parameter key="max_iterations" value="10"/>
@@ -54,8 +51,7 @@
         <parameter key="repository_entry" value="../data/train2"/>
       </operator>
       <connect from_op="Retrieve train" from_port="output" to_op="Nominal to Numerical" to_port="example set input"/>
-      <connect from_op="Nominal to Numerical" from_port="example set output" to_op="Store (2)" to_port="input"/>
-      <connect from_op="Store (2)" from_port="through" to_op="Linear Regression" to_port="training set"/>
+      <connect from_op="Nominal to Numerical" from_port="example set output" to_op="Linear Regression" to_port="training set"/>
       <connect from_op="Linear Regression" from_port="model" to_op="Store" to_port="input"/>
       <connect from_op="Store" from_port="through" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
