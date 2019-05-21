@@ -256,8 +256,10 @@
       <connect from_op="Rename" from_port="example set output" to_op="Reorder Attributes" to_port="example set input"/>
       <connect from_op="Reorder Attributes" from_port="example set output" to_op="Store" to_port="input"/>
       <connect from_op="Store" from_port="through" to_op="Write CSV" to_port="input"/>
+      <connect from_op="Write CSV" from_port="through" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
     </process>
   </operator>
 </process>
